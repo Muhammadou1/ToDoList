@@ -7,35 +7,58 @@ using System.Threading.Tasks;
 namespace ToDoList
 {
     public class Tasks
-        //infinitely run
+    //infinitely run
     {
         public List<string> tasks = new List<string>();
         public void TaskList()
         {
-            Console.WriteLine("Enter a tasks to do");
+            Console.Clear();
+            Console.WriteLine("Enter (1) to add tasks");
+            Console.WriteLine("Enter (2) to view tasks");
+            Console.WriteLine("Enter (3) to exit tasks");
+
 
             while (true)
             {
-                while (true)
+
+                string input = Console.ReadLine();
+
+                if (input == "1")
                 {
-                    string input = Console.ReadLine();
-                    if (string.IsNullOrEmpty(input))
+                    Console.WriteLine("Add a task to the list");
+                    string task = Console.ReadLine();
+                    tasks.Add(task);
+                    Console.ReadLine();
+
+                } else if (input == "2")
+                {
+
+                    if (tasks.Count == 0)
                     {
-                        Console.WriteLine("Total task " + tasks.Count);
-                        break;
+                        Console.WriteLine("No tasks");
                     }
-                    tasks.Add(input);
-                }
-                //string display = Console.ReadLine();
-                foreach (string task in tasks)
+                    else
+                    {
+                        Console.WriteLine("Tasks entered");
+                        for (int i = 0; i < tasks.Count; i++)
+                        {
+                            Console.WriteLine(tasks[i]);
+                        }
+
+                    }
+
+                } else if (input == "3")
                 {
-                    Console.WriteLine("Task to do " + task);
+                    Console.WriteLine("All List ");
+                    foreach(string task in tasks) 
+                         Console.WriteLine(task); 
+                    break;
+
                 }
 
 
             }
 
-          
         }
     }
 }

@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace ToDoList
 {
-    public class Status
+    public class TaskViewer
     {
-        public enum CheckStatus{
-            Open,
-            Complete
+        public void Render(TodoItem todoItem)
+        {
+
+        }
+
+        public void Render(List<TodoItem> todoAllItems)
+        {
+
         }
     }
 }

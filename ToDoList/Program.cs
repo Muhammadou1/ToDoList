@@ -9,13 +9,16 @@ namespace ToDoList
             Console.WriteLine("\tWelcome to my To-Do List app");
             Console.WriteLine("----------------------------------------------");
            
-            TaskManager taskmange = new TaskManager();
-            //taskmange.CreateTask("Task Name");
-            Console.WriteLine("What will you like to do?: create...");
+            TaskManager taskmanager = new TaskManager();
+            Console.WriteLine("What will you like to do?: Type create...");
             string input = Console.ReadLine();
             if(input == "create")
             {
-                taskmange.CreateTask("Title");
+                string task = Console.ReadLine();
+                taskmanager.CreateTask(task);
+                //string taskindex = taskmanager.TaskCollection[0].Title;
+                Console.WriteLine("Tasks to do");
+                Console.WriteLine(taskmanager.TaskCollection[0].Title);
             }
 
             

@@ -5,10 +5,6 @@
         static void Main(string[] args)
         {
             
-           Tasks task = new Tasks();
-            task.TaskList();
-
-          
 
         }
     }

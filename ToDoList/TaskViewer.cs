@@ -10,12 +10,15 @@ namespace ToDoList
     {
         public void Render(TodoItem todoItem)
         {
-            //to view item
+            Console.WriteLine($"ID: {todoItem.Id}, Title: {todoItem.Title}, Status: {todoItem.Status.Value}");  //Print Items to the console
         }
-
         public void Render(List<TodoItem> todoAllItems)
         {
+            foreach (TodoItem viewItem in todoAllItems)  //Loop through the list and display items entered
+            {
+                Render(viewItem);
 
+            }
         }
     }
 }

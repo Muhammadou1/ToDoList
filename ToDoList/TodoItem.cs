@@ -8,11 +8,8 @@ namespace ToDoList
 {
     public class TodoItem
     {
-        public int Id { get; set; }
-
-        public string Title { get; set; }
-
-
-        public Status Status { get; set; }
+        public required int Id { get; init; }
+        public required string Title { get; init; }
+        public required Status Status { get; set; }
     }
 }

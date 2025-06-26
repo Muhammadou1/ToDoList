@@ -19,12 +19,14 @@ namespace ToDoList
         
         public TodoItem DeleteTodo(int Id)
         {
-            return null;
+            TodoItem deleteTodo = TodoCollection.Single(deleteItem => deleteItem.Id == Id);  //Grab the Item by Id in the TodoCollection
+            TodoCollection.Remove(deleteTodo);               //Remove the selected item Id 
+            return deleteTodo;
         }
-        
+
         public void UpdateStatus(int Id, Status Status)
         {
-            foreach (var updateItem in TodoCollection)      //Iterate through the entire list
+            foreach (TodoItem updateItem in TodoCollection)      //Iterate through the entire list
             {
                 if (updateItem.Id == Id)                    //Check to see if Id property is = to selected Id
                 {

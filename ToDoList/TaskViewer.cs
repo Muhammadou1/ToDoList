@@ -10,7 +10,7 @@ namespace ToDoList
     {
         public void Render(TodoItem todoItem)
         {
-            Console.WriteLine($"ID: {todoItem.Id}, Title: {todoItem.Title}, Status: {todoItem.Status.Value}");  //Print Items to the console
+            Console.WriteLine($"ID: {todoItem.Id}, Title: {todoItem.Title}, Status: {todoItem.Status.Value}, Due Date: {todoItem.DueDate}");  //Print Items to the console
         }
        
         public void Render(List<TodoItem> todoAllItems)

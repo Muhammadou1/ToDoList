@@ -12,5 +12,6 @@ namespace ToDoList
         public required int Id { get; init; }
         public required string Title { get; init; }
         public required Status Status { get; set; }
+        public DateTime DueDate { get; set; }
     }
 }

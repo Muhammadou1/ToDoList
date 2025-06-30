@@ -1,4 +1,6 @@
-﻿namespace ToDoList
+﻿using Microsoft.VisualBasic;
+
+namespace ToDoList
 {
     public class App
     {
@@ -8,10 +10,9 @@
         {
             //Testing Todo Manager
             string[] todo = [
-                "aaaaa", 
-                "bbbb",
-                "ccccc",
-                "dddd"
+                    "Laundry",
+                    "Cook",
+                    "Shopping",
                ];
             todoManager.BulkCreateTodo(todo);
         }
@@ -29,7 +30,18 @@
                         Console.Clear();
                         Console.WriteLine("Enter you todo task.");
                         string? task = Console.ReadLine();
-                        todoManager.CreateTodo(task ?? "EMPTY");
+
+                        Console.WriteLine("Enter due date (MM/dd/yyyy");
+                        string? dueDateInput = Console.ReadLine();
+                        DateTime dueDate;
+                        if(!DateTime.TryParse(dueDateInput, out dueDate))
+                        {
+                            dueDate = DateTime.Now;
+                            Console.WriteLine("Invalid date");
+                            Console.ReadLine();
+                            break;
+                        }
+                        todoManager.CreateTodo(task ?? "EMPTY", dueDate);
                             break;
                     case "update":
                         Console.Clear();

@@ -50,6 +50,7 @@
                             {
                                 Console.WriteLine("Invalid Id entered, press enter to continue");
                                 Console.ReadLine();
+                                break;
                             }
                             Console.WriteLine("Task deleted");
                             Console.ReadLine();

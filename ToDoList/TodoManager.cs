@@ -31,9 +31,16 @@ namespace ToDoList
 
         public TodoItem DeleteTodo(int Id)
         {
-            TodoItem deleteTodo = TodoCollection.Single(deleteItem => deleteItem.Id == Id);  //Grab the Item by Id in the TodoCollection
-            TodoCollection.Remove(deleteTodo);               //Remove the selected item Id 
-            return deleteTodo;
+            foreach (TodoItem deleteItem in TodoCollection)  //Use foreach loop to through the entire collection
+            {
+                if (deleteItem.Id == Id)                    //Check to see if selected Id is in the TodoCollection
+                {
+                    TodoCollection.Remove(deleteItem);      // If found delete Id 
+                    return deleteItem;                      
+                }
+
+            }
+            throw new Exception();                         //If not found throw new exception 
         }
 
         public TodoItem? TryDeleteTodo(int Id)  //Method to verify Id exists in the TodoCollection

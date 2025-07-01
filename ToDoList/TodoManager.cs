@@ -51,13 +51,41 @@ namespace ToDoList
         }
         public void UpdateStatus(int Id, Status Status)
         {
-            foreach (TodoItem updateItem in TodoCollection)      //Iterate through the entire list
+            Dictionary<int, int> uniquesCount = new();
+
+            foreach (TodoItem item in TodoCollection)
             {
-                if (updateItem.Id == Id)                    //Check to see if Id property is = to selected Id
+                bool isAdded = uniquesCount.TryAdd(item.Id, 1);
+                if (!isAdded)
                 {
-                    updateItem.Status = Status.Complete();  //Update the status from Open to Complete
+                    uniquesCount[item.Id] += 1;
                 }
             }
+
+            if (!uniquesCount.TryGetValue(Id, out int _))  //Check if the ID exists
+            {
+                throw new Exception("Todo ID not found.");
+            }
+
+
+            foreach (KeyValuePair<int, int> entry in uniquesCount) //Check for duplicate IDs
+            {
+                if (entry.Value > 1)
+                {
+                    throw new Exception("Duplicate ID");
+                }
+            }
+
+            foreach (TodoItem updateItem in TodoCollection) //Update the status
+            {
+                if (updateItem.Id == Id)
+                {
+                    updateItem.Status = Status.Complete();
+                    return;
+                }
+            }
+
+            throw new Exception("Error");
         }
        
         public List<TodoItem> GetAllTodoItems()

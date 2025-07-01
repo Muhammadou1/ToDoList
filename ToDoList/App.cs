@@ -8,7 +8,7 @@
         {
             //Testing Todo Manager
             string[] todo = [
-                "aaaaa", 
+                "aaaaa",
                 "bbbb",
                 "ccccc",
                 "dddd"

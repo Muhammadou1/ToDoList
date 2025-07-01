@@ -34,12 +34,6 @@
                         todoManager.CreateTodo(task ?? "EMPTY");
                         break;
                     case "update":
-                        //Console.Clear();
-                        //Console.WriteLine("Enter you todo Id. To Update status to 'Complete'");
-                        //int updateId = int.Parse(Console.ReadLine() ?? "0");
-                        //todoManager.UpdateStatus(updateId, Status.Complete());
-                        //    break;
-
                         Console.Clear();
                         Console.WriteLine("Enter you todo Id. To Update status to 'Complete'");
                         int updateId = int.Parse(Console.ReadLine() ?? "0");

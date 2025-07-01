@@ -31,9 +31,47 @@ namespace ToDoList
 
         public TodoItem DeleteTodo(int Id)
         {
-            TodoItem deleteTodo = TodoCollection.Single(deleteItem => deleteItem.Id == Id);  //Grab the Item by Id in the TodoCollection
-            TodoCollection.Remove(deleteTodo);               //Remove the selected item Id 
-            return deleteTodo;
+            {
+                // Count how many times each Id appears
+                Dictionary<int, int> uniquesCount = new(); //Dictionary to check for Key{Id items in todo} and Value{how many time Id appears}
+
+                foreach (TodoItem item in TodoCollection)
+                {
+                    bool isAdded = uniquesCount.TryAdd(item.Id, 1);  //If Id is not found add to value 1
+                    if (isAdded == false)
+                    {
+                        uniquesCount[item.Id] += 1;                 //Increment Id count
+                    }
+                }
+
+               
+                if (!uniquesCount.TryGetValue(Id, out int _)) //Check to make sure the requested Id exists
+                {
+                    throw new Exception("Id not found.");
+                }
+
+                
+                foreach (KeyValuePair<int, int> entry in uniquesCount) //Check to ensure there are no duplicate Id
+                {
+                    if (entry.Value > 1)
+                    {
+                        throw new Exception("Duplicate ID.");
+                    }
+                }
+
+               
+                foreach (TodoItem deleteItem in TodoCollection) // Delete the item with the matching Id in collection
+                {
+                    if (deleteItem.Id == Id)
+                    {
+                        TodoCollection.Remove(deleteItem);
+                        return deleteItem;
+                    }
+                }
+
+                throw new Exception("Error.");
+            }
+
         }
 
         public TodoItem? TryDeleteTodo(int Id)  //Method to verify Id exists in the TodoCollection

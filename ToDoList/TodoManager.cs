@@ -11,13 +11,17 @@ namespace ToDoList
         private List<TodoItem> TodoCollection = new List<TodoItem>();
         int count = 0;                                         // Increment the Item ID
 
-        public void CreateTodo(string paramTitle)
+        public void CreateTodo(string taskTitle, DateTimeOffset duedate )
         {
             TodoItem todoItem = new TodoItem() //Initializing a new instance with object initialization   
             {
                 Id = count++,
                 Status = Status.Open(),
-                Title = paramTitle
+                Title = taskTitle,
+                CreatedDate = DateTime.Now,
+                DueAt = duedate,
+                DateCompleted = null,
+                LastModified = null
             };
             TodoCollection.Add(todoItem);     //Adding todoItem to the TodoCollection
 
@@ -26,7 +30,7 @@ namespace ToDoList
         {
             foreach (string paramTitle in paramTitles)
             {
-                CreateTodo(paramTitle);                 //Call the create method and pass in the string
+                CreateTodo(paramTitle, DateTime.Today.AddDays(5));                 //Call the create method and pass in the string
             }
         }
         public void DuplicateCheck(int Id)
@@ -67,7 +71,6 @@ namespace ToDoList
                 }
                 throw new Exception("Error.");
             }
-
         }
 
         public TodoItem? TryDeleteTodo(int Id)  //Method to verify Id exists in the TodoCollection
@@ -94,10 +97,10 @@ namespace ToDoList
                 if (updateItem.Id == Id)
                 {
                     updateItem.Status = Status.Complete();
+                    updateItem.DateCompleted = DateTime.Now;
                     return;
                 }
             }
-
             throw new Exception("Error");
         }
 
@@ -115,6 +118,18 @@ namespace ToDoList
                 Console.ReadLine();
                 return false;
             }
+        }
+        public TodoItem GetById(int Id)
+        {
+            DuplicateCheck(Id);
+            foreach (TodoItem itemDetail in TodoCollection)  
+            {
+                if (itemDetail.Id == Id)        //Get the ID specified for detail view
+                {
+                    return itemDetail;
+                }
+            }
+            throw new Exception("Error");
         }
 
         public List<TodoItem> GetAllTodoItems()

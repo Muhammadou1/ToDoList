@@ -20,7 +20,6 @@ namespace ToDoList
 
         private Status(string status) { Value = status; }
 
-
         public string Value { get; private set; }
 
     }

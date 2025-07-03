@@ -10,7 +10,18 @@ namespace ToDoList
     {
         public void Render(TodoItem todoItem)
         {
-            Console.WriteLine($"ID: {todoItem.Id}, Title: {todoItem.Title}, Status: {todoItem.Status.Value}");  //Print Items to the console
+            Console.WriteLine($"ID: |{todoItem.Id}| Title: {todoItem.Title}, Status: |{todoItem.Status.Value}|");  //Print Items to the console
+            Console.WriteLine("---------------------------------------------------");
+        }
+
+        public void RenderTodoDetail(TodoItem todoDetailItem)
+        {
+            Render(todoDetailItem);
+            Console.WriteLine($"Created Date: {todoDetailItem.CreatedDate}");
+            Console.WriteLine($"Task Completed Date:{todoDetailItem.DateCompleted?.ToString() ?? " N/A"}");
+            Console.WriteLine($"Due Date: {todoDetailItem.DueAt?.ToString() ?? " N/A"}");
+            //Console.WriteLine($"Last Modified Date:{todoDetailItem.LastModified?.ToString() ?? " N/A"}");
+            Console.WriteLine("-------------------------------------------------");
         }
 
         public void Render(List<TodoItem> todoAllItems)

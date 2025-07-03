@@ -8,16 +8,20 @@ namespace ToDoList
 {
     public class TodoManager
     {
-        private List<TodoItem> TodoCollection = new List<TodoItem>();
+        private List<TodoItem> TodoCollection = new List<TodoItem>(); //Set up my memory of all my list to be added
         int count = 0;                                         // Increment the Item ID
 
-        public void CreateTodo(string paramTitle)
+        public void CreateTodo(string taskTitle, DateTimeOffset? dueDate = null)
         {
             TodoItem todoItem = new TodoItem() //Initializing a new instance with object initialization   
-            {
+            {                                  //Setting up my all my properties here and assiginig them a value
                 Id = count++,
                 Status = Status.Open(),
-                Title = paramTitle
+                Title = taskTitle,
+                CreatedDate = DateTimeOffset.Now,
+                DueAt = dueDate,
+                DateCompleted = null,
+                LastModified = null
             };
             TodoCollection.Add(todoItem);     //Adding todoItem to the TodoCollection
 
@@ -67,7 +71,6 @@ namespace ToDoList
                 }
                 throw new Exception("Error.");
             }
-
         }
 
         public TodoItem? TryDeleteTodo(int Id)  //Method to verify Id exists in the TodoCollection
@@ -94,10 +97,10 @@ namespace ToDoList
                 if (updateItem.Id == Id)
                 {
                     updateItem.Status = Status.Complete();
+                    updateItem.DateCompleted = DateTimeOffset.Now;
                     return;
                 }
             }
-
             throw new Exception("Error");
         }
 
@@ -114,6 +117,32 @@ namespace ToDoList
                 Console.WriteLine(ex);
                 Console.ReadLine();
                 return false;
+            }
+        }
+        public TodoItem GetById(int Id)
+        {
+            DuplicateCheck(Id);
+            foreach (TodoItem itemDetail in TodoCollection)  
+            {
+                if (itemDetail.Id == Id)        //Get the ID specified for detail view
+                {
+                    return itemDetail;
+                }
+            }
+            throw new Exception("Error");
+        }
+
+        public TodoItem? TryGetById(int Id)
+        {
+            try
+            {
+                return GetById(Id);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                Console.ReadLine();
+                return null;
             }
         }
 

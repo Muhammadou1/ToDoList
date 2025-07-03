@@ -59,18 +59,16 @@
 
         public TodoItem DeleteTodo(int Id)
         {
+            DuplicateCheck(Id);                             //Call DuplicateCheck method
+            foreach (TodoItem deleteItem in TodoCollection) // Delete the item with the matching Id in collection
             {
-                DuplicateCheck(Id);                             //Call DuplicateCheck method
-                foreach (TodoItem deleteItem in TodoCollection) // Delete the item with the matching Id in collection
+                if (deleteItem.Id == Id)
                 {
-                    if (deleteItem.Id == Id)
-                    {
-                        TodoCollection.Remove(deleteItem);
-                        return deleteItem;
-                    }
+                    TodoCollection.Remove(deleteItem);
+                    return deleteItem;
                 }
-                throw new Exception("Error.");
             }
+            throw new Exception("Error.");
         }
 
 
@@ -82,7 +80,6 @@
             }
             catch (Exception ex)               //catch if no Id is found
             {
-
                 Console.WriteLine(ex);
                 Console.ReadLine();
                 return null;

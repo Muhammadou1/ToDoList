@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ToDoList
+﻿namespace ToDoList
 {
     public class Status
     {
@@ -13,14 +7,15 @@ namespace ToDoList
             return new Status("Open");
         }
 
+
         public static Status Complete()
         {
             return new Status("Complete");
         }
 
+
         private Status(string status) { Value = status; }
 
         public string Value { get; private set; }
-
     }
 }

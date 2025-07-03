@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ToDoList
+﻿namespace ToDoList
 {
     public class TodoManager
     {
         private List<TodoItem> TodoCollection = new List<TodoItem>(); //Set up my memory of all my list to be added
         int count = 0;                                         // Increment the Item ID
+
 
         public void CreateTodo(string taskTitle, DateTimeOffset? dueDate = null)
         {
@@ -26,6 +21,8 @@ namespace ToDoList
             TodoCollection.Add(todoItem);     //Adding todoItem to the TodoCollection
 
         }
+
+
         public void BulkCreateTodo(string[] paramTitles) //Method using string Array for TodoManger test
         {
             foreach (string paramTitle in paramTitles)
@@ -33,6 +30,8 @@ namespace ToDoList
                 CreateTodo(paramTitle);                 //Call the create method and pass in the string
             }
         }
+
+
         public void DuplicateCheck(int Id)
         {
             // Count how many times each Id appears
@@ -57,6 +56,8 @@ namespace ToDoList
                 throw new Exception($"Duplicate ID for {Id}.");
             }
         }
+
+
         public TodoItem DeleteTodo(int Id)
         {
             {
@@ -73,6 +74,7 @@ namespace ToDoList
             }
         }
 
+
         public TodoItem? TryDeleteTodo(int Id)  //Method to verify Id exists in the TodoCollection
         {
             try
@@ -88,9 +90,10 @@ namespace ToDoList
                 return null;
             }
         }
+
+
         public void UpdateStatus(int Id, Status Status)
         {
-
             DuplicateCheck(Id);
             foreach (TodoItem updateItem in TodoCollection) //Update the status
             {
@@ -104,13 +107,13 @@ namespace ToDoList
             throw new Exception("Error");
         }
 
+
         public bool TryUpdateStatus(int Id, Status Status)     //Method to verify Id exists in the TodoCollection
         {
             try
             {
                 UpdateStatus(Id, Status.Open());    //return and delete if exist
                 return true;
-
             }
             catch (Exception ex)                //catch if no Id is found
             {

@@ -1,6 +1,4 @@
-﻿
-namespace ToDoList
-
+﻿namespace ToDoList
 {
     internal class Program
     {

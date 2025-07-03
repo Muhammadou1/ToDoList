@@ -4,6 +4,8 @@
     {
         TaskViewer TaskViewer = new();
         TodoManager todoManager = new();
+
+
         public void Initialize()
         {
             //Testing Todo Manager Tasks
@@ -14,13 +16,13 @@
             todoManager.BulkCreateTodo(todo);
         }
 
+
         public void Mainloop()
         {
             while (true)
             {
                 Console.WriteLine("Current session task:");
                 TaskViewer.Render(todoManager.GetAllTodoItems());
-
 
                 string? command = Console.ReadLine();
                 switch (command)
@@ -106,12 +108,15 @@
                         Console.Clear();
                         Console.WriteLine("Exiting...");
                         return;
+
                     default:
                         break;
                 }
                 Console.Clear();
             }
         }
+
+
         public void Shutdown()
         {
 

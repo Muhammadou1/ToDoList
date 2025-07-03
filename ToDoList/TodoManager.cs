@@ -19,7 +19,6 @@
                 LastModified = null
             };
             TodoCollection.Add(todoItem);     //Adding todoItem to the TodoCollection
-
         }
 
 
@@ -80,7 +79,6 @@
             try
             {
                 return DeleteTodo(Id);       //return and delete if exist
-
             }
             catch (Exception ex)               //catch if no Id is found
             {

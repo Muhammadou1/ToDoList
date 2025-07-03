@@ -2,8 +2,8 @@
 {
     public class App
     {
-        TaskViewer TaskViewer = new();
-        TodoManager todoManager = new();
+        private TaskViewer TaskViewer = new();
+        private TodoManager todoManager = new();
 
 
         public void Initialize()

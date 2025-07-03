@@ -3,7 +3,7 @@
     public class TodoManager
     {
         private List<TodoItem> TodoCollection = new List<TodoItem>(); //Set up my memory of all my list to be added
-        int count = 0;                                         // Increment the Item ID
+        private int count = 0;                                         // Increment the Item ID
 
 
         public void CreateTodo(string taskTitle, DateTimeOffset? dueDate = null)

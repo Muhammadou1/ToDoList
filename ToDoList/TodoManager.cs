@@ -97,7 +97,7 @@ namespace ToDoList
                 if (updateItem.Id == Id)
                 {
                     updateItem.Status = Status.Complete();
-                    updateItem.DateCompleted = DateTime.Now;
+                    updateItem.DateCompleted = DateTimeOffset.Now;
                     return;
                 }
             }

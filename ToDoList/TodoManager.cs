@@ -8,13 +8,13 @@ namespace ToDoList
 {
     public class TodoManager
     {
-        private List<TodoItem> TodoCollection = new List<TodoItem>();
+        private List<TodoItem> TodoCollection = new List<TodoItem>(); //Set up my memory of all my list to be added
         int count = 0;                                         // Increment the Item ID
 
         public void CreateTodo(string taskTitle, DateTimeOffset duedate )
         {
             TodoItem todoItem = new TodoItem() //Initializing a new instance with object initialization   
-            {
+            {                                  //Setting up my all my properties here and assiginig them a value
                 Id = count++,
                 Status = Status.Open(),
                 Title = taskTitle,
@@ -130,6 +130,21 @@ namespace ToDoList
                 }
             }
             throw new Exception("Error");
+        }
+
+        public TodoItem? TryGetById(int Id)
+        {
+            try
+            {
+                return GetById(Id);
+              
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                Console.ReadLine();
+                return null;
+            }
         }
 
         public List<TodoItem> GetAllTodoItems()

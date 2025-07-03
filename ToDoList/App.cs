@@ -6,7 +6,7 @@
         TodoManager todoManager = new();
         public void Initialize()
         {
-            //Testing Todo Manager
+            //Testing Todo Manager Tasks
             string[] todo = [
                 "Laundry",
                 "Shopping",
@@ -40,11 +40,12 @@
                                 Console.WriteLine("Invalid date, Default to tadays date");
                                 Console.ReadLine();
                                 dueDate = DateTimeOffset.Now;
-                            } else
+                            }
+                            else
                             {
                                 dueDate = parseDate;
                             }
-                                todoManager.CreateTodo(task ?? "EMPTY", dueDate);
+                            todoManager.CreateTodo(task ?? "EMPTY", dueDate);
                         }
                         break;
 
@@ -91,10 +92,15 @@
                         Console.Clear();
                         Console.WriteLine("Enter your todo Id. To view detail");
                         int viewId = int.Parse(Console.ReadLine());
-                        TodoItem viewDetail = todoManager.GetById(viewId);
+                        TodoItem? viewDetail = todoManager.TryGetById(viewId);
+                        if(viewDetail == null)
+                        {
+                            Console.WriteLine("Invalid Id, press enter to continue");
+                            Console.ReadLine();
+                            break;
+                        }
                         TaskViewer.RenderTodoDetail(viewDetail);
                         Console.ReadLine();
-
                         break;
 
                     case "exit":

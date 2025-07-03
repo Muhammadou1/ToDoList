@@ -19,7 +19,6 @@ namespace ToDoList
             Render(todoDetailItem);
             Console.WriteLine($"Created Date: {todoDetailItem.CreatedDate}");
             Console.WriteLine($"Task Completed Date:{todoDetailItem.DateCompleted?.ToString() ?? " N/A"}");
-            //Console.WriteLine($"Due Date: {todoDetailItem.DueAt}");
             Console.WriteLine($"Due Date: {todoDetailItem.DueAt?.ToString() ?? " N/A"}");
             //Console.WriteLine($"Last Modified Date:{todoDetailItem.LastModified?.ToString() ?? " N/A"}");
             Console.WriteLine("-------------------------------------------------");

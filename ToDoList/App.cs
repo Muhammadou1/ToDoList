@@ -32,14 +32,13 @@
 
                         Console.WriteLine("Enter due date (mm/dd/yyyy)");
                         string? dateInput = Console.ReadLine();
-                        DateTimeOffset dueDate;
+                        DateTimeOffset? dueDate = null;
                         if (!string.IsNullOrWhiteSpace(dateInput))
                         {
                             if (!DateTimeOffset.TryParse(dateInput, out DateTimeOffset parseDate))
                             {
-                                Console.WriteLine("Invalid date, Default to tadays date");
+                                Console.WriteLine("Invalid date, No due date set");
                                 Console.ReadLine();
-                                dueDate = DateTimeOffset.Now;
                             }
                             else
                             {

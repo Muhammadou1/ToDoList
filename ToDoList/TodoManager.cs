@@ -11,15 +11,15 @@ namespace ToDoList
         private List<TodoItem> TodoCollection = new List<TodoItem>(); //Set up my memory of all my list to be added
         int count = 0;                                         // Increment the Item ID
 
-        public void CreateTodo(string taskTitle, DateTimeOffset duedate )
+        public void CreateTodo(string taskTitle, DateTimeOffset? dueDate = null)
         {
             TodoItem todoItem = new TodoItem() //Initializing a new instance with object initialization   
             {                                  //Setting up my all my properties here and assiginig them a value
                 Id = count++,
                 Status = Status.Open(),
                 Title = taskTitle,
-                CreatedDate = DateTime.Now,
-                DueAt = duedate,
+                CreatedDate = DateTimeOffset.Now,
+                DueAt = dueDate,
                 DateCompleted = null,
                 LastModified = null
             };
@@ -30,7 +30,7 @@ namespace ToDoList
         {
             foreach (string paramTitle in paramTitles)
             {
-                CreateTodo(paramTitle, DateTime.Today.AddDays(5));                 //Call the create method and pass in the string
+                CreateTodo(paramTitle);                 //Call the create method and pass in the string
             }
         }
         public void DuplicateCheck(int Id)
@@ -137,7 +137,6 @@ namespace ToDoList
             try
             {
                 return GetById(Id);
-              
             }
             catch (Exception ex)
             {

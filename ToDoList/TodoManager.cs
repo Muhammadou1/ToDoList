@@ -121,7 +121,7 @@ namespace ToDoList
         public TodoItem GetById(int Id)
         {
             DuplicateCheck(Id);
-            foreach (TodoItem itemDetail in TodoCollection)  
+            foreach (TodoItem itemDetail in TodoCollection)
             {
                 if (itemDetail.Id == Id)        //Get the ID specified for detail view
                 {

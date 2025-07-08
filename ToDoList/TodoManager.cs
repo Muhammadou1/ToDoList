@@ -23,10 +23,9 @@ namespace ToDoList
                 DateCompleted = null,
                 LastModified = null
             };
-            TodoCollection.Add(todoItem);     //Adding todoItem to the TodoCollection
-
+            TodoCollection.Add(todoItem);     //Adding todoItem(tasks) to the TodoCollection
         }
-        public void BulkCreateTodo(string[] paramTitles) //Method using string Array for TodoManger test
+        public void BulkCreateTodo(string[] paramTitles) //Method using string Array for TodoManger test tasks
         {
             foreach (string paramTitle in paramTitles)
             {
@@ -143,6 +142,39 @@ namespace ToDoList
                 Console.WriteLine(ex);
                 Console.ReadLine();
                 return null;
+            }
+        }
+
+        public void EditItem(TodoItem item, EditToItemInstruction editToItemInstruction)
+        {
+            if (editToItemInstruction.Property.ToLower() == "title")
+            {
+                item.Title = editToItemInstruction.Value;  //gets the title input and sets in to a value
+                item.LastModified = DateTimeOffset.Now;   // adds modified date
+            }
+            else if (editToItemInstruction.Property.ToLower() == "status")
+            {
+                string statusValue = editToItemInstruction.Value.ToLower();
+                if (statusValue == "complete")
+                {
+                    item.Status = Status.Complete();            //update status 
+                    item.DateCompleted = DateTimeOffset.Now;   //set complete date
+                    item.LastModified = DateTimeOffset.Now;    // adds modified date
+                }
+                else if (statusValue == "open")
+                {
+                    item.Status = Status.Open();            //change status back to open
+                    item.DateCompleted = null;              // sets complete date to null
+                    item.LastModified = DateTimeOffset.Now; // adds modified date
+                }
+                else
+                {
+                    throw new Exception("Invalid status value.");  // throw invalid if user sets wrong value
+                }
+            }
+            else
+            {
+                throw new Exception("Use a valid input format");
             }
         }
 

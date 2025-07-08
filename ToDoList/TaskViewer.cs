@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ToDoList
+﻿namespace ToDoList
 {
     public class TaskViewer
     {
@@ -13,6 +7,7 @@ namespace ToDoList
             Console.WriteLine($"ID: |{todoItem.Id}| Title: {todoItem.Title}, Status: |{todoItem.Status.Value}|");  //Print Items to the console
             Console.WriteLine("---------------------------------------------------");
         }
+
 
         public void RenderTodoDetail(TodoItem todoDetailItem)
         {
@@ -23,6 +18,7 @@ namespace ToDoList
             Console.WriteLine($"Last Modified Date: {todoDetailItem.LastModified?.ToString() ?? "N/A"}");
             Console.WriteLine("-------------------------------------------------");
         }
+
 
         public void Render(List<TodoItem> todoAllItems)
         {

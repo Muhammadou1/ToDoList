@@ -2,8 +2,10 @@
 {
     public class App
     {
-        TaskViewer TaskViewer = new();
-        TodoManager todoManager = new();
+        private TaskViewer TaskViewer = new();
+        private TodoManager todoManager = new();
+
+
         public void Initialize()
         {
             //Testing Todo Manager Tasks
@@ -13,6 +15,7 @@
                ];
             todoManager.BulkCreateTodo(todo);
         }
+
 
         public void Mainloop()
         {
@@ -124,12 +127,15 @@
                         Console.Clear();
                         Console.WriteLine("Exiting...");
                         return;
+
                     default:
                         break;
                 }
                 Console.Clear();
             }
         }
+
+
         public void Shutdown()
         {
 

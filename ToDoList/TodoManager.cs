@@ -18,7 +18,7 @@
                 DateCompleted = null,
                 LastModified = null
             };
-
+        }
         public void BulkCreateTodo(string[] paramTitles) //Method using string Array for TodoManger test
         {
             foreach (string paramTitle in paramTitles)

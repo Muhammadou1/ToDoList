@@ -4,16 +4,14 @@
     {
         private TaskViewer taskViewer = new();
         private TodoManager todoManager = new();
-
         public void Initialize()
         {
             //Testing for Todo Manager Tasks
             string[] todo = [
-                //"Laundry",
-                //"Shopping",
+                "Laundry",
+                "Shopping",
                ];
             todoManager.BulkCreateTodo(todo);
-
             taskViewer.RenderTodoTutorial(); //Only displays at the start of application
         }
 

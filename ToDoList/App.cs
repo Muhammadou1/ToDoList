@@ -30,23 +30,23 @@
                     case "create":
                         Console.Clear();
                         Console.WriteLine("Enter your todo task.");
-                        string? task = Console.ReadLine();
+                        string? taskInput = Console.ReadLine();
 
                         Console.WriteLine("Enter due date (mm/dd/yyyy)");
                         string? dateInput = Console.ReadLine();
                         DateTimeOffset? dueDate = null;
                         if (!string.IsNullOrWhiteSpace(dateInput))
                         {
-                            if (!DateTimeOffset.TryParse(dateInput, out DateTimeOffset parseDate))
+                            if (DateTimeOffset.TryParse(dateInput, out DateTimeOffset parseDate))
+                            {
+                                dueDate = parseDate;
+                            }
+                            else
                             {
                                 Console.WriteLine("Invalid date, No due date set");
                                 Console.ReadLine();
                             }
-                            else
-                            {
-                                dueDate = parseDate;
-                            }
-                            todoManager.CreateTodo(task ?? "EMPTY", dueDate);
+                            todoManager.CreateTodo(taskInput ?? "EMPTY", dueDate);
                         }
                         break;
 
@@ -92,16 +92,35 @@
                     case "detail":
                         Console.Clear();
                         Console.WriteLine("Enter your todo Id. To view detail");
-                        int viewId = int.Parse(Console.ReadLine());
+                        int viewId = int.Parse(Console.ReadLine() ?? "0");
                         TodoItem? viewDetail = todoManager.TryGetById(viewId);
-                        if(viewDetail == null)
+                        if (viewDetail == null)
                         {
                             Console.WriteLine("Invalid Id, press enter to continue");
                             Console.ReadLine();
                             break;
                         }
                         TaskViewer.RenderTodoDetail(viewDetail);
-                        Console.ReadLine();
+
+                        string? anotherCommand = Console.ReadLine();
+                        switch (anotherCommand)
+                        {
+                            case "edit":
+                                Console.Clear();
+                                Console.WriteLine("Enter property and value to edit {prop}=value");
+                                EditToItemInstruction edit = InputParser.ParseToEditCommand(Console.ReadLine() ?? "");
+                                try
+                                {
+                                    todoManager.EditItem(viewDetail, edit);
+                                    Console.WriteLine("Todo item updated successfully. Press Enter to continue.");
+                                }
+                                catch (Exception)
+                                {
+                                    Console.WriteLine("Error: Invalid");
+                                }
+                                Console.ReadLine();
+                                break;
+                        }
                         break;
 
                     case "exit":

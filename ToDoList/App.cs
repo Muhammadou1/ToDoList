@@ -2,27 +2,19 @@
 {
     public class App
     {
-        private TaskViewer TaskViewer = new();
+        private TaskViewer taskViewer = new();
         private TodoManager todoManager = new();
-
 
         public void Initialize()
         {
-            Console.WriteLine("Tutorials:");
-            Console.WriteLine("Type 'create' to create a task");
-            Console.WriteLine("Type 'update' to update a task");
-            Console.WriteLine("Type 'delete' to delete a task");
-            Console.WriteLine("Type 'detail' to view detail of a task");
-            Console.WriteLine("Type 'edit' to edit a task");
-            Console.WriteLine("Type 'exit' to exit a application");
-            Console.WriteLine("--------------------------------------");
-            Console.WriteLine("Press Enter to get started");
-            //Testing Todo Manager Tasks
+            //Testing for Todo Manager Tasks
             string[] todo = [
-                "Laundry",
-                "Shopping",
+                //"Laundry",
+                //"Shopping",
                ];
             todoManager.BulkCreateTodo(todo);
+
+            taskViewer.RenderTodoTutorial(); //Only displays at the start of application
         }
 
 
@@ -31,7 +23,7 @@
             while (true)
             {
                 Console.WriteLine("Current session task:");
-                TaskViewer.Render(todoManager.GetAllTodoItems());
+                taskViewer.Render(todoManager.GetAllTodoItems());
 
                 string? command = Console.ReadLine();
                 switch (command)
@@ -109,7 +101,7 @@
                             Console.ReadLine();
                             break;
                         }
-                        TaskViewer.RenderTodoDetail(viewDetail);
+                        taskViewer.RenderTodoDetail(viewDetail);
 
                         string? anotherCommand = Console.ReadLine();
                         switch (anotherCommand)

@@ -5,7 +5,7 @@
         public void Render(TodoItem todoItem)
         {
             Console.WriteLine($"ID: |{todoItem.Id}| Title: {todoItem.Title}, Status: |{todoItem.Status.Value}|");  //Print Items to the console
-            Console.WriteLine("---------------------------------------------------");
+            Console.WriteLine("-----------------------------------------");
         }
 
 
@@ -16,7 +16,7 @@
             Console.WriteLine($"Task Completed Date: {todoDetailItem.DateCompleted?.ToString() ?? "N/A"}");
             Console.WriteLine($"Due Date: {todoDetailItem.DueAt?.ToString() ?? "N/A"}");
             Console.WriteLine($"Last Modified Date: {todoDetailItem.LastModified?.ToString() ?? "N/A"}");
-            Console.WriteLine("-------------------------------------------------");
+            Console.WriteLine("-----------------------------------------");
         }
 
 

@@ -8,6 +8,15 @@
 
         public void Initialize()
         {
+            Console.WriteLine("Tutorials:");
+            Console.WriteLine("Type 'create' to create a task");
+            Console.WriteLine("Type 'update' to update a task");
+            Console.WriteLine("Type 'delete' to delete a task");
+            Console.WriteLine("Type 'detail' to view detail of a task");
+            Console.WriteLine("Type 'edit' to edit a task");
+            Console.WriteLine("Type 'exit' to exit a application");
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("Press Enter to get started");
             //Testing Todo Manager Tasks
             string[] todo = [
                 "Laundry",
@@ -27,7 +36,7 @@
                 string? command = Console.ReadLine();
                 switch (command)
                 {
-                    case "create":
+                    case Global.CREATE:
                         Console.Clear();
                         Console.WriteLine("Enter your todo task.");
                         string? taskInput = Console.ReadLine();
@@ -50,7 +59,7 @@
                         }
                         break;
 
-                    case "update":
+                    case Global.UPDATE:
                         Console.Clear();
                         Console.WriteLine("Enter your todo Id. To Update status to 'Complete'");
                         int updateId = int.Parse(Console.ReadLine() ?? "0");
@@ -65,7 +74,7 @@
                         Console.ReadLine();
                         break;
 
-                    case "delete":
+                    case Global.DELETE:
                         Console.Clear();
                         Console.WriteLine("Enter your todo Id. To delete");
                         int deleteId = int.Parse(Console.ReadLine() ?? "0");
@@ -89,7 +98,7 @@
                         }
                         break;
 
-                    case "detail":
+                    case Global.DETAIL:
                         Console.Clear();
                         Console.WriteLine("Enter your todo Id. To view detail");
                         int viewId = int.Parse(Console.ReadLine() ?? "0");
@@ -105,7 +114,7 @@
                         string? anotherCommand = Console.ReadLine();
                         switch (anotherCommand)
                         {
-                            case "edit":
+                            case Global.EDIT:
                                 Console.Clear();
                                 Console.WriteLine("Enter property and value to edit {prop}=value");
                                 EditToItemInstruction edit = InputParser.ParseToEditCommand(Console.ReadLine() ?? "");
@@ -123,7 +132,7 @@
                         }
                         break;
 
-                    case "exit":
+                    case Global.EXIT:
                         Console.Clear();
                         Console.WriteLine("Exiting...");
                         return;

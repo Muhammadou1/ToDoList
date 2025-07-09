@@ -1,11 +1,11 @@
-﻿# ToDoListProject
+﻿# ToDoList Application
 # Diagrams
 ## UML
-### Class
+### UML Class Diagram
 ![UML - Class](https://github.com/user-attachments/assets/c43c6d59-154b-489a-9776-c441c5601903)
 ### Enhanced version class
 ![UML - Class Enhanced](https://github.com/user-attachments/assets/11604725-6eec-4051-af9f-a9172408be07)
-## Activity
+## UML Activity Diagrams
 ### App
 ![UML - Activity - App](https://github.com/user-attachments/assets/aa69d7cd-05f7-4089-a656-b54e5b40fbe4)
 ### Create

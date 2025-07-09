@@ -1,6 +1,5 @@
 ﻿# ToDoList Application
 # Diagrams
-## UML
 ### UML Class Diagram
 ![UML - Class](https://github.com/user-attachments/assets/c43c6d59-154b-489a-9776-c441c5601903)
 ### Enhanced version class

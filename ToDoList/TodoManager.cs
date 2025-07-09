@@ -18,6 +18,7 @@
                 DateCompleted = null,
                 LastModified = null
             };
+            TodoCollection.Add(todoItem);    //Adding todoItem to the TodoCollection
         }
         public void BulkCreateTodo(string[] paramTitles) //Method using string Array for TodoManger test
         {

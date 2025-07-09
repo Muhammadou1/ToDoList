@@ -20,7 +20,7 @@ namespace ToDoList
             string[] splitParts = rawinput.Split(EditToItemInstruction.SEPARATOR); // split the two strings, split only once 
 
             string property = splitParts[0].Trim(); //first part trim
-            string value = value = splitParts[1].Trim(); //second part trim                
+            string value = splitParts[1].Trim(); //second part trim                
 
             return new EditToItemInstruction { Property = property, Value = value }; //return the new edit instruction value    
         }

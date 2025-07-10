@@ -5,7 +5,7 @@
         public void Render(TodoItem todoItem)
         {
             Console.WriteLine($"ID: |{todoItem.Id}| Title: {todoItem.Title}, Status: |{todoItem.Status.Value}|");  //Print Items to the console
-            Console.WriteLine("---------------------------------------------------");
+            Console.WriteLine("-----------------------------------------");
         }
 
 
@@ -16,9 +16,22 @@
             Console.WriteLine($"Task Completed Date: {todoDetailItem.DateCompleted?.ToString() ?? "N/A"}");
             Console.WriteLine($"Due Date: {todoDetailItem.DueAt?.ToString() ?? "N/A"}");
             Console.WriteLine($"Last Modified Date: {todoDetailItem.LastModified?.ToString() ?? "N/A"}");
-            Console.WriteLine("-------------------------------------------------");
+            Console.WriteLine("-----------------------------------------");
         }
 
+        public void RenderTodoTutorial()
+        {
+            Console.WriteLine("Tutorials:");
+            Console.WriteLine("Type 'create' to create a task");
+            Console.WriteLine("Type 'update' to update a task");
+            Console.WriteLine("Type 'delete' to delete a task");
+            Console.WriteLine("Type 'detail' to view detail of a task");
+            Console.WriteLine("Type 'edit' to edit a task");
+            Console.WriteLine("Type 'exit' to exit a application");
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("Press Enter to get started");
+            Console.WriteLine("--------------------------------------");
+        }
 
         public void Render(List<TodoItem> todoAllItems)
         {

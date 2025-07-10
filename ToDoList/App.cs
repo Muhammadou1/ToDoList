@@ -2,18 +2,17 @@
 {
     public class App
     {
-        private TaskViewer TaskViewer = new();
+        private TaskViewer taskViewer = new();
         private TodoManager todoManager = new();
-
-
         public void Initialize()
         {
-            //Testing Todo Manager Tasks
+            //Testing for Todo Manager Tasks
             string[] todo = [
                 "Laundry",
                 "Shopping",
                ];
             todoManager.BulkCreateTodo(todo);
+            taskViewer.RenderTodoTutorial(); //Only displays at the start of application
         }
 
 
@@ -22,12 +21,12 @@
             while (true)
             {
                 Console.WriteLine("Current session task:");
-                TaskViewer.Render(todoManager.GetAllTodoItems());
+                taskViewer.Render(todoManager.GetAllTodoItems());
 
                 string? command = Console.ReadLine();
                 switch (command)
                 {
-                    case "create":
+                    case Global.CREATE:
                         Console.Clear();
                         Console.WriteLine("Enter your todo task.");
                         string? taskInput = Console.ReadLine();
@@ -50,7 +49,7 @@
                         }
                         break;
 
-                    case "update":
+                    case Global.UPDATE:
                         Console.Clear();
                         Console.WriteLine("Enter your todo Id. To Update status to 'Complete'");
                         int updateId = int.Parse(Console.ReadLine() ?? "0");
@@ -65,7 +64,7 @@
                         Console.ReadLine();
                         break;
 
-                    case "delete":
+                    case Global.DELETE:
                         Console.Clear();
                         Console.WriteLine("Enter your todo Id. To delete");
                         int deleteId = int.Parse(Console.ReadLine() ?? "0");
@@ -89,7 +88,7 @@
                         }
                         break;
 
-                    case "detail":
+                    case Global.DETAIL:
                         Console.Clear();
                         Console.WriteLine("Enter your todo Id. To view detail");
                         int viewId = int.Parse(Console.ReadLine() ?? "0");
@@ -100,12 +99,12 @@
                             Console.ReadLine();
                             break;
                         }
-                        TaskViewer.RenderTodoDetail(viewDetail);
+                        taskViewer.RenderTodoDetail(viewDetail);
 
                         string? anotherCommand = Console.ReadLine();
                         switch (anotherCommand)
                         {
-                            case "edit":
+                            case Global.EDIT:
                                 Console.Clear();
                                 Console.WriteLine("Enter property and value to edit {prop}=value");
                                 EditToItemInstruction edit = InputParser.ParseToEditCommand(Console.ReadLine() ?? "");
@@ -123,7 +122,7 @@
                         }
                         break;
 
-                    case "exit":
+                    case Global.EXIT:
                         Console.Clear();
                         Console.WriteLine("Exiting...");
                         return;

@@ -30,14 +30,31 @@ This application uses a design with the following structure:
 
 ## Getting Started
 Prerequisites
- .NET 8 SDK 
- Any C# compatible IDE (Visual Studio, VS Code)
+ - .NET 8 SDK 
+ - Any C# compatible IDE (Visual Studio, VS Code)
 
 Run the Application
 
  Clone this repo:
-   git clone https://github.com/muhammadou1/ToDoList.git
+  - git clone https://github.com/muhammadou1/ToDoList.git
 
 Created by [Muhammadou Drammeh](https://github.com/Muhammadou1) as a console-based practice project for understanding object-oriented design and clean code principles.
 Monitored by [John Cruz](https://github.com/JCruz6725)
+
+## Development Process & Practices
+Applied SOLID Principles to ensure scalable, maintainable, and readable code
+
+Followed Separation of Concerns, organizing logic cleanly across different classes 
+
+Employed the Software Development Life Cycle (SDLC) to guide the planning and implementation stages
+
+Planned and mapped system behavior using a UML Activity Diagram before development began
+
+Created a [UML](https://github.com/Muhammadou1/ToDoList/wiki/Diagrams) Class Diagrams before writing code to model domain logic and relationships
+
+Practiced Agile Methodology, breaking down the project into small, testable, iterative steps
+
+Translated business requirements into [user stories](https://github.com/users/Muhammadou1/projects/1)
+
+Regularly reviewed and updated the development plan to reflect user needs
 

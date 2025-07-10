@@ -1,24 +1,43 @@
-﻿# ToDoList Application
-# Diagrams
-### UML Class Diagram
-![UML - Class](https://github.com/user-attachments/assets/c43c6d59-154b-489a-9776-c441c5601903)
-### Enhanced version class
-![UML - Class Enhanced](https://github.com/user-attachments/assets/11604725-6eec-4051-af9f-a9172408be07)
-## UML Activity Diagrams
-### App
-![UML - Activity - App](https://github.com/user-attachments/assets/aa69d7cd-05f7-4089-a656-b54e5b40fbe4)
-### Create
-![UML - Activity - Create](https://github.com/user-attachments/assets/a3d8ed41-9a91-429e-a83b-7e1c232970be)
-### Delete
-![UML - Activity - Delete](https://github.com/user-attachments/assets/1be620a1-c035-47a8-9ca7-83b4a0d06eca)
-### Enhanced version
-![UML - Activity - App](https://github.com/user-attachments/assets/918abd2b-bcec-49c1-b6ef-219816d2fc46)
-### Update
-![UML - Activity - UpdateStatus](https://github.com/user-attachments/assets/e97e1052-3fcb-4d8e-90f0-ca0afc20e23a)
-### View
-![UML - Activity - View](https://github.com/user-attachments/assets/af3d5b2c-e566-4fc9-870b-248974fa2ac0)
-### Enhanced version
-![UML - Activity - View](https://github.com/user-attachments/assets/5ac4940b-e09e-4dff-849d-49fe023a20c8)
-## Edit and View Detail
-![UML - Activity - App](https://github.com/user-attachments/assets/55df67eb-9288-4a6f-aba5-2c0390ee4490)
+
+# Console Todo List Application (C#)
+
+This is a simple and functional Todo List application built in C# using a console-based interface. It allows you to create, update, delete, edit and view detail tasks with support for due dates, completion status, and detailed metadata.
+
+## Features
+Create a new task with a title and due date
+View all tasks in a simple list format
+View details of a specific task (Created date, Due date, Completed date, Last modified date)
+Edit task title or status (Open/Complete)
+Delete tasks by ID
+Detect and block duplicate IDs or IDs not found
+Automatically tracks when a task was:
+  - Created
+  - Completed
+  - Last modified
+
+## How It Works
+
+This application uses a design with the following structure:
+
+- TodoItem.cs: Represents a single todo task
+- TodoManager.cs: Contains core logic for managing tasks (create, delete, update, etc.)
+- TaskViewer.cs: Handles rendering tasks to the console
+- App.cs: Controls the user interface and handles user input
+- Status.cs: Handles status value of todo task like "Open" or "Complete"
+- InputParser.cs: Parses edit commands like title=Gym or status=complete
+- EditToItemInstruction.cs: Holds property-value pairs for editing a task
+- Global.cs: Holds input commands
+
+## Getting Started
+Prerequisites
+ .NET 8 SDK 
+ Any C# compatible IDE (Visual Studio, VS Code)
+
+Run the Application
+
+ Clone this repo:
+   git clone https://github.com/muhammadou1/ToDoList.git
+
+Created by [Muhammadou Drammeh](https://github.com/Muhammadou1) as a console-based practice project for understanding object-oriented design and clean code principles.
+Monitored by [John Cruz](https://github.com/JCruz6725)
 

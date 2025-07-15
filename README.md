@@ -4,12 +4,12 @@
 This is a simple and functional Todo List application built using C# console-based interface. It allows you to create, update, delete, edit and view task info like due dates, completion status, and metadata.
 
 ## Features
-Create a new task with a title and due date
-View TODO task in a simple list format
-View details of a specific task (Created date, Due date, Completed date, Last modified date)
-Edit task title or status
-Deletes task by ID
-Detect and block duplicate IDs or IDs not found
+Create a new task with a title and due date,
+View TODO task in a simple list format,
+View details of a specific task (Created date, Due date, Completed date, Last modified date),
+Edit task title or status,
+Deletes task by ID,
+Detect and block duplicate IDs or IDs not found.
 Tracks when a task was:
   - Created
   - Completed

@@ -26,7 +26,6 @@
             Console.WriteLine("Type 'update' to update a task");
             Console.WriteLine("Type 'delete' to delete a task");
             Console.WriteLine("Type 'detail' to view detail of a task");
-            Console.WriteLine("Type 'edit' to edit a task");
             Console.WriteLine("Type 'exit' to exit a application");
             Console.WriteLine("--------------------------------------");
             Console.WriteLine("Press Enter to get started");

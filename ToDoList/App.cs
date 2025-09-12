@@ -100,6 +100,7 @@
                             break;
                         }
                         taskViewer.RenderTodoDetail(viewDetail);
+                        Console.WriteLine("Type 'edit' to edit a task");
 
                         string? anotherCommand = Console.ReadLine();
                         switch (anotherCommand)
